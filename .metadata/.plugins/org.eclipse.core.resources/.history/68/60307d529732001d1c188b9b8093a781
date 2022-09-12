@@ -18,8 +18,16 @@ import com.pojo.Employee;
 public class CRUD  implements EmployeeDao{
 	SessionFactory sfactory;
 	public CRUD() {
+		try {
 			sfactory=MyConnection.connect();
 			System.out.println("Connection Done.......");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public boolean addEmployee(Employee em) {
 		boolean b=false;
