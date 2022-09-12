@@ -1,0 +1,32 @@
+package com.db;
+
+import java.sql.SQLException;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+public class MyConnection {
+	public static SessionFactory  connect() throws ClassNotFoundException, SQLException {
+		
+		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("Hibernate.cfg.xml").build();
+		System.out.println("file loaded");
+		MetadataSources ms = new MetadataSources(ssr);
+       
+        Metadata metadata = ms.getMetadataBuilder().build();
+      
+        SessionFactory sessionFact = metadata.getSessionFactoryBuilder().build();
+        return sessionFact; // we have connections inside SessionFactory object
+	}
+	
+	public static void main(String[] args) {
+		try {
+			connect();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+

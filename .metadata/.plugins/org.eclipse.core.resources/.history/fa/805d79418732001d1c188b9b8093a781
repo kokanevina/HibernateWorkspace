@@ -1,0 +1,16 @@
+package com.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+public class MyConnection {
+
+	public static Connection connect() throws ClassNotFoundException, SQLException {
+		
+		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure().build();
+	}
+}

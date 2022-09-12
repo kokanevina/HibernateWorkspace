@@ -1,0 +1,15 @@
+package com.db;
+
+
+public class MyConnection {
+
+	public static void connect() throws ClassNotFoundException, SQLException {
+		
+		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure().build();
+		System.out.println("file loaded");
+	}
+	public static void main(String[] args) {
+		
+	}
+}
+

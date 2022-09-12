@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.pojo.Employee" table="employee"> <!--  table is optional attribute -->
+<!--  to map pojo variable with pk column -->
+<id name="empId" type="int" column="emp_id">
+<!-- how to generate value for primary key column -->
+		<generator class="assigned" /> <!--  developer will provide the value for primary key -->
+</id>
+<property name="empName" type="string" column="emp_name" />
+<property name="empSalary" type="double" column="emp_salary" />
+<property name="address" type="string" column="address" />
+</class>
+</hibernate-mapping>
