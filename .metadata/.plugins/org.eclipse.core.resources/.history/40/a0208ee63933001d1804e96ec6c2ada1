@@ -22,18 +22,22 @@ public class CRUD  implements EmployeeDao{
 		Transaction tr=session.beginTransaction();
 		Serializable id= session.save(em); // insert query  // persists
 		tr.commit();
-		b=true;
+		if(em.getEmpId()==(int)id)
+			b=true;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return b;
 	}
+	
+	
 	  public boolean updateEmployee(Employee em) {
 		  boolean b=false;
 			try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-			session.update(em); // id : existing, other : new/old
+			session.update(em);
 			b=true;
 			tr.commit();		
 			}
@@ -44,26 +48,18 @@ public class CRUD  implements EmployeeDao{
 			return b;
 	  } 
 	  
-	 
-	  public boolean deleteEmployee(int empId) { 
-		  
-		  boolean b=false;
-			try(Session session=sfactory.openSession();){
-			Transaction tr=session.beginTransaction();
-			Employee emp=session.get(Employee.class, empId);
-			session.delete(emp);
-			tr.commit();
-			b=true;
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			return b;
-		  
-	  }
-	  
-	  
+	 /*
+	 * public boolean deleteEmployee(int empId) { boolean b=false; String
+	 * sql="delete from employee where emp_id=?"; try (Connection
+	 * connection=MyConnection.connect()){ PreparedStatement
+	 * pstatement=connection.prepareStatement(sql); pstatement.setInt(1, empId);
+	 * System.out.println(pstatement); int no=pstatement.executeUpdate();
+	 * System.out.println("Number of rows affected: "+no); if(no>0) b=true; } catch
+	 * (ClassNotFoundException e) { e.printStackTrace(); } catch (SQLException e) {
+	 * e.printStackTrace(); } System.out.println("Connection Autoclosed"); return b;
+	 * }
+	 * 
+	 * */
 	 
 	  public Employee getEmployeeById(int empId) 
 	  {  Employee emp=null;

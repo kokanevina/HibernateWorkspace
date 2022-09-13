@@ -27,8 +27,11 @@ public class CRUD  implements EmployeeDao{
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return b;
 	}
+	
+	
 	  public boolean updateEmployee(Employee em) {
 		  boolean b=false;
 			try(Session session=sfactory.openSession();){
@@ -50,8 +53,7 @@ public class CRUD  implements EmployeeDao{
 		  boolean b=false;
 			try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-			Employee emp=session.get(Employee.class, empId);
-			session.delete(emp);
+			Serializable id= session.save(em); // insert query  // persists
 			tr.commit();
 			b=true;
 			}

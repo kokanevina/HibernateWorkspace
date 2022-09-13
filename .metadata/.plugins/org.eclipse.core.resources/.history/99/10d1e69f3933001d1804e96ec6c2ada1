@@ -42,7 +42,7 @@ public class EmployeeServlet extends HttpServlet {
 			  session.setAttribute("eList",empList);
 			  response.sendRedirect("EmployeeList.jsp"); 
 		  }
-		 
+		  /*
 		  else if(userAction.equalsIgnoreCase("delete")) 
 		  { 
 			  int id=Integer.parseInt(request.getParameter("id")); 
@@ -53,7 +53,7 @@ public class EmployeeServlet extends HttpServlet {
 				  response.sendRedirect("EmployeeServlet?act=getall"); 
 			  else
 				  response.sendRedirect("Error.jsp");
-		  } 
+		  } */
 		  else if(userAction.equalsIgnoreCase("get")) 
 		  { 
 			  int id=Integer.parseInt(request.getParameter("id")); 
@@ -84,12 +84,12 @@ public class EmployeeServlet extends HttpServlet {
 			String qual=request.getParameter("qual");
 			Employee emp=new Employee(empId,empName,empSalary,qual); //O
 			boolean b=crud.addEmployee(emp);
-			if(b) 
+			if(b) {
 				response.sendRedirect("EmployeeServlet?act=getall"); // fresh new req to same Servlet, doGet
-			
-			else 
+			}
+			else {
 				response.sendRedirect("Error.jsp");
-			
+			}
 		}
 		else if(userAction.equalsIgnoreCase("update")) {
 			
