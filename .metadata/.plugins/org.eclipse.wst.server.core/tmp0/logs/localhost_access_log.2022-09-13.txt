@@ -1,0 +1,6 @@
+127.0.0.1 - - [13/Sep/2022:12:42:17 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [13/Sep/2022:12:42:18 +0530] "GET /EmployeeProject/AddEmployee.jsp HTTP/1.1" 200 569
+0:0:0:0:0:0:0:1 - - [13/Sep/2022:12:42:18 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [13/Sep/2022:12:42:33 +0530] "POST /EmployeeProject/EmployeeServlet HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Sep/2022:12:42:33 +0530] "GET /EmployeeProject/EmployeeServlet?act=getall HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Sep/2022:12:42:35 +0530] "GET /EmployeeProject/EmployeeList.jsp HTTP/1.1" 200 1054

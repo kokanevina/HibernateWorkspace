@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -25,7 +26,7 @@ public class CRUD  implements EmployeeDao{
 		boolean b=false;
 		try(Session session=sfactory.openSession();){
 		Transaction tr=session.beginTransaction();
-		Serializable id= session.save(em); // insert query
+		Serializable id= session.save(em); // insert query  // persists
 		tr.commit();
 		if(em.getEmpId()==(int)id)
 			b=true;
@@ -73,27 +74,30 @@ public class CRUD  implements EmployeeDao{
 	 * } catch (ClassNotFoundException e) { e.printStackTrace(); } catch
 	 * (SQLException e) { e.printStackTrace(); }
 	 * System.out.println("Connection Autoclosed"); return emp; }
-	 * 
-	 * public List<Employee> getAllEmployees() { String
-	 * sql="select * from employee"; List<Employee> empList=new ArrayList<>(); try
-	 * (Connection connection=MyConnection.connect()){ PreparedStatement
-	 * pstatement=connection.prepareStatement(sql); // Statement ResultSet rset=
-	 * pstatement.executeQuery(); System.out.println(rset.getClass()); // selected
-	 * data is available in rset while(rset.next()) { int id=rset.getInt("emp_id");
-	 * String name=rset.getString("emp_name"); double
-	 * salary=rset.getDouble("emp_salary"); String
-	 * qual=rset.getString("qualification"); Employee emp=new
-	 * Employee(id,name,salary,qual); empList.add(emp); } } catch
-	 * (ClassNotFoundException e) { e.printStackTrace(); } catch (SQLException e) {
-	 * e.printStackTrace(); } System.out.println("Connection Autoclosed"); return
-	 * empList; } // method ended
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
+	 * */
+	
+	public List<Employee> getAllEmployees() 
+	{ 
+		List<Employee> empList=null;
+		try(Session session=sfactory.openSession();){
+			Transaction tr=session.beginTransaction();
+			Query query=session.createQuery("from Employee"); // HQL Employee : pojo class name 
+			empList= query.list();	
+			tr.commit();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		return empList;
+	}
+} // method ended
+	  
+	  
+	  
+	  
+	 
 	
 	
 	
 	
-}
+

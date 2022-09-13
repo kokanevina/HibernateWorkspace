@@ -32,21 +32,37 @@ public class EmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * CRUD crud=new CRUD(); HttpSession session=request.getSession(); String
-		 * userAction=request.getParameter("act");
-		 * if(userAction.equalsIgnoreCase("getall")) { List<Employee> empList=
-		 * crud.getAllEmployees(); // db is connected here session.setAttribute("eList",
-		 * empList); response.sendRedirect("EmployeeList.jsp"); // fresh new request }//
-		 * getall else if(userAction.equalsIgnoreCase("delete")) { int
-		 * id=Integer.parseInt(request.getParameter("id")); System.out.println(id);
-		 * boolean b=crud.deleteEmployee(id); if(b) {
-		 * response.sendRedirect("EmployeeServlet?act=getall"); } } else
-		 * if(userAction.equalsIgnoreCase("get")) { int
-		 * id=Integer.parseInt(request.getParameter("id")); System.out.println(id);
-		 * Employee employee=crud.getEmployeeById(id); session.setAttribute("employee",
-		 * employee); System.out.println(employee);
-		 * response.sendRedirect("UpdateEmployee.jsp"); }
+		
+		  CRUD crud=new CRUD();
+		  HttpSession session=request.getSession(); String
+		  userAction=request.getParameter("act");
+		  if(userAction.equalsIgnoreCase("getall")) 
+		  { 
+			  List<Employee> empList=crud.getAllEmployees(); 
+			  session.setAttribute("eList",empList);
+			  response.sendRedirect("EmployeeList.jsp"); 
+		  }
+		  /*
+		  else if(userAction.equalsIgnoreCase("delete")) 
+		  { 
+			  int id=Integer.parseInt(request.getParameter("id")); 
+			  System.out.println(id);
+		  
+			  boolean b=crud.deleteEmployee(id); 
+			  if(b) 
+				  response.sendRedirect("EmployeeServlet?act=getall"); 
+			  else
+				  response.sendRedirect("Error.jsp");
+		  } 
+		  else if(userAction.equalsIgnoreCase("get")) 
+		  { 
+			  int id=Integer.parseInt(request.getParameter("id")); 
+			  System.out.println(id);
+			  Employee employee=crud.getEmployeeById(id); 
+			  session.setAttribute("employee",employee); 
+			  System.out.println(employee);
+			  response.sendRedirect("UpdateEmployee.jsp"); 
+		  }
 		 */
 		
 		
