@@ -55,22 +55,20 @@ public class CRUD  implements EmployeeDao{
 	 * e.printStackTrace(); } System.out.println("Connection Autoclosed"); return b;
 	 * }
 	 * 
+	 * public Employee getEmployeeById(int empId) { Employee emp=null; String
+	 * sql="select * from employee where emp_id=?"; try (Connection
+	 * connection=MyConnection.connect()){ PreparedStatement
+	 * pstatement=connection.prepareStatement(sql); pstatement.setInt(1, empId);
+	 * System.out.println(pstatement); ResultSet rset= pstatement.executeQuery();
+	 * while(rset.next()) { int id=rset.getInt("emp_id"); String
+	 * name=rset.getString("emp_name"); double salary=rset.getDouble("emp_salary");
+	 * String qual=rset.getString("qualification"); emp=new
+	 * Employee(id,name,salary,qual); }
+	 * 
+	 * } catch (ClassNotFoundException e) { e.printStackTrace(); } catch
+	 * (SQLException e) { e.printStackTrace(); }
+	 * System.out.println("Connection Autoclosed"); return emp; }
 	 * */
-	 
-	  public Employee getEmployeeById(int empId) 
-	  {  Employee emp=null;
-		  // if we want to select record on the basis of pk then direct method : get is available
-		  try(Session session=sfactory.openSession();){
-			Transaction tr=session.beginTransaction();
-		    emp=session.get(Employee.class, empId);// ORM
-			tr.commit();
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		  return emp;
-	  }
-	  
 	
 	public List<Employee> getAllEmployees() 
 	{ 

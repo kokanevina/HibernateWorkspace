@@ -62,13 +62,13 @@ public class CRUD  implements EmployeeDao{
 		  // if we want to select record on the basis of pk then direct method : get is available
 		  try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-		    emp=session.get(Employee.class, empId);// ORM
+		    Employee emp=session.get(Employee.class, empId);// ORM
 			tr.commit();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-		  return emp;
+		  
 	  }
 	  
 	
