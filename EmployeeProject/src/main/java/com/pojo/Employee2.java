@@ -5,13 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 // JPA
 @Entity  // Employee2 class object is know as Entity
 @Table(name = "neoemployee")
+@Inheritance(strategy=InheritanceType.JOINED) /*table per subclass*/
 public class Employee2 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/* @GeneratedValue(strategy = GenerationType.AUTO) */ 
+	// if we dont use GeneratedValue then value must be assigned
 	@Column(name = "neoemp_id")
 	private int empId; // mapping to primary key of table
 	

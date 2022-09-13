@@ -1,0 +1,39 @@
+package com.pojo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "neotrainer")
+@PrimaryKeyJoinColumn(name="tr_id")   /*foreign key column*/
+public class NeoTrainer extends Employee2{
+	@Column(name = "train_tech")
+	private String trainingTechnology;
+	private double extraPayPerHr;
+	public NeoTrainer() {
+		// TODO Auto-generated constructor stub
+	}
+	public NeoTrainer(String trainingTechnology, double extraPayPerHr) {
+		this.trainingTechnology = trainingTechnology;
+		this.extraPayPerHr = extraPayPerHr;
+	}
+	public String getTrainingTechnology() {
+		return trainingTechnology;
+	}
+	public void setTrainingTechnology(String trainingTechnology) {
+		this.trainingTechnology = trainingTechnology;
+	}
+	public double getExtraPayPerHr() {
+		return extraPayPerHr;
+	}
+	public void setExtraPayPerHr(double extraPayPerHr) {
+		this.extraPayPerHr = extraPayPerHr;
+	}
+	@Override
+	public String toString() {
+		return  super.toString()+"Trainer [trainingTechnology=" + trainingTechnology + ", extraPayPerHr=" + extraPayPerHr + "]";
+	}
+	
+}

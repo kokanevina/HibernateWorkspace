@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.model.TrainerCrud;
 import com.pojo.Developer;
+import com.pojo.NeoTrainer;
 import com.pojo.Trainer;
 
 public class InheritanceTest {
@@ -16,9 +17,7 @@ public class InheritanceTest {
 			tr.setEmpSalary(34000);
 			tr.setExtraPayPerHr(450);
 			tr.setQualification("ME");
-			tr.setTrainingTechnology("Java");
-			
-			
+			tr.setTrainingTechnology("Java");		
 			boolean b=trcrud.addTrainer(tr);
 			System.out.println(b);
 			*/
@@ -34,8 +33,17 @@ public class InheritanceTest {
 			boolean b=trcrud.addDeveloper(d);
 			System.out.println(b);
 			*/
-			
+			/*
 			List<Trainer> trainerList= trcrud.getAllTrainers();
-			trainerList.forEach(System.out::println);
+			trainerList.forEach(System.out::println);*/
+			NeoTrainer tr=new NeoTrainer();
+			tr.setEmpId(66);
+			tr.setEmpName("Pooja");
+			tr.setEmpSalary(34000);
+			tr.setExtraPayPerHr(600);
+			tr.setQualification("BE");
+			tr.setTrainingTechnology("Python");		
+			boolean b=trcrud.addTrainer(tr);
+			System.out.println(b);
 		}
 }

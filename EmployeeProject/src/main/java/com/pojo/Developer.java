@@ -25,7 +25,7 @@ public class Developer extends Employee{
 	}
 	@Override
 	public String toString() {
-		return "Developer [clientCompany=" + clientCompany + ", technology=" + technology + "]";
+		return super.toString()+"Developer [clientCompany=" + clientCompany + ", technology=" + technology + "]";
 	}
 	
 	

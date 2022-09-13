@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 import com.db.MyConnection;
 import com.pojo.Developer;
 import com.pojo.Employee;
+import com.pojo.NeoTrainer;
 import com.pojo.Trainer;
 
 public class TrainerCrud {
@@ -21,6 +22,19 @@ public class TrainerCrud {
 			System.out.println("Connection Done.......");
 	}
 	public boolean addTrainer(Trainer trainer) {
+		boolean b=false;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Serializable id= session.save(trainer); // insert query  // persists
+		tr.commit();
+		b=true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;	
+	}
+	public boolean addTrainer(NeoTrainer trainer) {
 		boolean b=false;
 		try(Session session=sfactory.openSession();){
 		Transaction tr=session.beginTransaction();
