@@ -1,14 +1,8 @@
 package com.model;
 
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-
-import org.hibernate.Query;
+import javax.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -81,7 +75,7 @@ public class CRUD  implements EmployeeDao{
 		List<Employee> empList=null;
 		try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-			Query query=session.createQuery("from Employee"); // HQL Employee : pojo class name 
+			TypedQuery<Employee> query=session.createQuery("from Employee", Employee.class); // HQL Employee : pojo class name 
 			empList= query.getResultList();
 			tr.commit();
 			}
