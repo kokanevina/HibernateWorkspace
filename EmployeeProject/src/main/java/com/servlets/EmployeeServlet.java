@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.model.CRUD;
 import com.pojo.Employee;
+import com.pojo.Employee2;
 
 /**
  * Servlet implementation class EmployeeServlet
@@ -82,7 +83,8 @@ public class EmployeeServlet extends HttpServlet {
 			String empName=request.getParameter("empName");
 			double empSalary=Double.parseDouble(request.getParameter("empSalary"));
 			String qual=request.getParameter("qual");
-			Employee emp=new Employee(empId,empName,empSalary,qual); //O
+			Employee2 emp=new Employee2(empId, empName, empSalary, qual);
+			//Employee emp=new Employee(empId,empName,empSalary,qual); //
 			boolean b=crud.addEmployee(emp);
 			if(b) 
 				response.sendRedirect("EmployeeServlet?act=getall"); // fresh new req to same Servlet, doGet
@@ -98,6 +100,7 @@ public class EmployeeServlet extends HttpServlet {
 			  String empName=request.getParameter("empName"); 
 			  double empSalary=Double.parseDouble(request.getParameter("empSalary")); 
 			  String qual=request.getParameter("qual"); 
+			  
 			  Employee emp=new Employee(empId,empName,empSalary,qual); 
 			  boolean b=crud.updateEmployee(emp);
 			  if(b) 

@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import com.db.MyConnection;
 
 import com.pojo.Employee;
+import com.pojo.Employee2;
 public class CRUD  implements EmployeeDao{
 	SessionFactory sfactory;
 	public CRUD() {
@@ -29,6 +30,20 @@ public class CRUD  implements EmployeeDao{
 		}
 		return b;
 	}
+	public boolean addEmployee(Employee2 em) {
+		boolean b=false;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Serializable id= session.save(em); // insert query  // persists
+		tr.commit();
+		b=true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+	}
+	
 	  public boolean updateEmployee(Employee em) {
 		  boolean b=false;
 			try(Session session=sfactory.openSession();){

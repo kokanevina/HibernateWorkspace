@@ -1,0 +1,1 @@
+Create new Hibernate CRUD Application using Annotations
