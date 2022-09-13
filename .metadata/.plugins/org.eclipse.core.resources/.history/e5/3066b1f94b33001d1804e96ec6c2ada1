@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.pojo.Employee" table="employee"> 
+	<id name="empId" type="int" column="emp_id">
+		<generator class="assigned" /> 
+	</id>
+	<property name="empName" type="string" column="emp_name" />
+	<property name="empSalary" type="double" column="emp_salary" />
+	<property name="qualification" type="string" ></property>
+
+	<joined-subclass name="com.pojo.Trainer" table="trainer">  
+	  <key column="e_id"></key>  
+	  <property name="trainingTechnology" column="train_technology"></property>  
+	  <property name="extraPayPerHr">
+	  	<column name="extra_pay_hr" not-null="true" default="100"></column>
+	  </property>  
+	 </joined-subclass>  
+	<joined-subclass name="com.pojo.Developer" table="developer">  
+	  <key column="e_id"></key>  
+	  <property name="trainingTechnology" column="train_technology"></property>  
+	  <property name="extraPayPerHr">
+	  	<column name="extra_pay_hr" not-null="true" default="100"></column>
+	  </property>  
+	 </joined-subclass> 
+</class>
+</hibernate-mapping>

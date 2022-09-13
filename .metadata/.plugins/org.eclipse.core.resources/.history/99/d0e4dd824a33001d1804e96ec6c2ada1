@@ -1,0 +1,6 @@
+package com.pojo;
+
+public class Trainer extends Employee {
+	private String trainingTechnology;
+	private double trainingExperience;
+}

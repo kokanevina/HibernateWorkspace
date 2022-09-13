@@ -1,0 +1,22 @@
+package com.test;
+
+import com.model.TrainerCrud;
+import com.pojo.Trainer;
+
+public class InheritanceTest {
+		public static void main(String[] args) {
+			Trainer tr=new Trainer();
+			tr.setEmpId(77);
+			tr.setEmpName("Poonam");
+			tr.setEmpSalary(34000);
+			tr.setExtraPayPerHr(450);
+			tr.setQualification("ME");
+			tr.setTrainingTechnology("Java");
+			
+			TrainerCrud trcrud=new TrainerCrud();
+			boolean b=trcrud.addTrainer(tr);
+			System.out.println(b);
+			
+			// Test is for Developer
+		}
+}

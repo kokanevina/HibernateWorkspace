@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.pojo.Employee" table="employee"> 
+<id name="empId" type="int" column="emp_id">
+	<generator class="assigned" /> 
+</id>
+<property name="empName" type="string" column="emp_name" />
+<property name="empSalary" type="double" column="emp_salary" />
+<property name="qualification" type="string" ></property>
+
+</class>
+</hibernate-mapping>
