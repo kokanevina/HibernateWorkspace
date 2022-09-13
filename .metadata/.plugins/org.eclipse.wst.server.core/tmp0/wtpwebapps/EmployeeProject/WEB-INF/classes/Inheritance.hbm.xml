@@ -20,7 +20,7 @@
 	<joined-subclass name="com.pojo.Developer" table="developer">  
 	  <key column="e_id"></key>  
 	  <property name="clientCompany" column="client_company"></property>  
-	  <property name="technology">
+	  <property name="technology" type="string">
 	  	<column name="technology"></column>
 	  </property>  
 	 </joined-subclass> 

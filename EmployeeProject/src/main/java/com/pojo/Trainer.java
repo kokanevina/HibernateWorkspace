@@ -25,7 +25,7 @@ public class Trainer extends Employee {
 	}
 	@Override
 	public String toString() {
-		return "Trainer [trainingTechnology=" + trainingTechnology + ", extraPayPerHr=" + extraPayPerHr + "]";
+		return  super.toString()+"Trainer [trainingTechnology=" + trainingTechnology + ", extraPayPerHr=" + extraPayPerHr + "]";
 	}
 	
 	
