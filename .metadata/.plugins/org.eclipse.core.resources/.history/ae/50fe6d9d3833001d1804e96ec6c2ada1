@@ -59,9 +59,9 @@ public class EmployeeServlet extends HttpServlet {
 			  int id=Integer.parseInt(request.getParameter("id")); 
 			  Employee employee=crud.getEmployeeById(id); 
 			  if(employee!null) {
-				  session.setAttribute("employee",employee); 
-				  System.out.println(employee);
-				  response.sendRedirect("UpdateEmployee.jsp"); 
+			  session.setAttribute("employee",employee); 
+			  System.out.println(employee);
+			  response.sendRedirect("UpdateEmployee.jsp"); 
 			  }
 			  else
 				  response.sendRedirect("Error.jsp");
