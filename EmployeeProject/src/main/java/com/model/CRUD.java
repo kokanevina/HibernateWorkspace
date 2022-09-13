@@ -82,7 +82,7 @@ public class CRUD  implements EmployeeDao{
 		try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
 			Query query=session.createQuery("from Employee"); // HQL Employee : pojo class name 
-			empList= query.list();	
+			empList= query.getResultList();
 			tr.commit();
 			}
 			catch (Exception e) {
