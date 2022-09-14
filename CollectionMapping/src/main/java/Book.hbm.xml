@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.pojo.Book" table="book"> 
+<id name="bookId" type="int" column="book_id">
+		<generator class="increment" /> 
+</id>
+<property name="bookName" type="string" column="book_name" />
+<property name="bookPrice" type="double" column="book_price" />
+<many-to-one  name="author" column="auth_id" unique="true" class="com.pojo.Author" not-null="true">
+</many-to-one>
+</class>
+</hibernate-mapping>

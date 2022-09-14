@@ -3,7 +3,6 @@ package com.test;
 import java.util.List;
 
 import com.model.TrainerCrud;
-import com.pojo.Developer;
 import com.pojo.NeoTrainer;
 import com.pojo.Trainer;
 
@@ -33,9 +32,11 @@ public class InheritanceTest {
 			boolean b=trcrud.addDeveloper(d);
 			System.out.println(b);
 			*/
-			/*
+			
 			List<Trainer> trainerList= trcrud.getAllTrainers();
-			trainerList.forEach(System.out::println);*/
+			trainerList.forEach(System.out::println);
+			
+			
 			NeoTrainer tr=new NeoTrainer();
 			tr.setEmpId(66);
 			tr.setEmpName("Pooja");

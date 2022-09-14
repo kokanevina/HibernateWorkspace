@@ -11,4 +11,23 @@
     <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+    <fullyQualifiedTypeName name="org.hibernate.Query"/>
+    <fullyQualifiedTypeName name="javax.persistence.TypedQuery"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="com.pojo.Employee"/>
+    <fullyQualifiedTypeName name="com.model.TrainerCrud"/>
+    <fullyQualifiedTypeName name="com.pojo.Developer"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.pojo.Employee2"/>
+    <fullyQualifiedTypeName name="javax.persistence.Inheritance"/>
+    <fullyQualifiedTypeName name="javax.persistence.InheritanceType"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.PrimaryKeyJoinColumn"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.pojo.NeoTrainer"/>
+    <fullyQualifiedTypeName name="com.pojo.Trainer"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
