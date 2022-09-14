@@ -59,6 +59,18 @@ public class BookCrud  implements BookDao{
 		}
 		return b;
 	}
+	@Override
+	public StoryBook getBookId(int bookId) {
+
+		StoryBook book=session.get(StoryBook.class,bookId);
+		return book;
+	}
+	@Override
+	public boolean deleteBook(int bookId) {
+		StoryBook book=getBookId(bookId);
+		session.delete(book);
+		return b;
+	}
 } 
 	  
 	  
