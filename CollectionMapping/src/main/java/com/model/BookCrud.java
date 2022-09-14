@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import com.db.MyConnection;
 import com.pojo.Author;
 import com.pojo.Book;
+import com.pojo.StoryBook;
 public class BookCrud  implements BookDao{
 	SessionFactory sfactory;
 	public BookCrud() {
@@ -44,6 +45,20 @@ public class BookCrud  implements BookDao{
 		return bookList;
 	}
 	
+	
+	public boolean addBook(StoryBook book) {
+		boolean b=false;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Serializable id2= session.save(book); // insert query  // persists
+		tr.commit();
+		b=true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+	}
 } 
 	  
 	  
