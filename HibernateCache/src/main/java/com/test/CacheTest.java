@@ -13,9 +13,10 @@ public class CacheTest {
 	crud.addEmployee(emp2);*/
 	
 	Employee emp=crud.getEmployeeById(2); // select
-	System.out.println("________________________");
+	System.out.println("----------------------------");
 	Employee empp=crud.getEmployeeById(2);
 	//System.out.println(emp);
 	crud.sfactory.close(); // SessionFactory Object closed
+	
 }
 }
