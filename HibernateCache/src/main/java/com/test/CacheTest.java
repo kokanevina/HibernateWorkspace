@@ -6,11 +6,19 @@ import com.model.CRUD;
 import com.pojo.Employee;
 
 public class CacheTest {
- public static void main(String[] args) {
+ public static void main(String[] args) throws InterruptedException {
 	CRUD crud=new CRUD(); // SessionFactory Object Created
-	Employee emp=crud.getEmployeeById(2); // select
+	Employee emp1=crud.getEmployeeById(2); // select
 	System.out.println("----------------------------");
-	Employee empp=crud.getEmployeeById(2);
+	Thread.sleep(1000*20);
+	Employee emp2=crud.getEmployeeById(2);
+	System.out.println("----------------------------");
+	Thread.sleep(1000*20);
+	Employee emp3=crud.getEmployeeById(2);
+	System.out.println("----------------------------");
+	Thread.sleep(1000*20+10);
+	Employee emp4=crud.getEmployeeById(2);  // db hit
+	System.out.println("----------------------------");
 	//System.out.println(emp);
 	System.out.println("**************");
 	
