@@ -8,6 +8,8 @@ public static void main(String[] args) {
 	
 	//crud.executeHQL();
 	//crud.executeHQL2();
-	crud.executeHQL3();
+	//crud.executeHQL3();
+	//crud.dynamicHQL();
+	crud.DMLHQL();
 }
 }

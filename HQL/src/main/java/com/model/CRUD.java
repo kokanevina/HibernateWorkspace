@@ -3,6 +3,8 @@ package com.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.TypedQuery;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -96,7 +98,41 @@ public class CRUD  implements EmployeeDao{
 			}
 		}
 	}
-} // method ended
+	
+	public void dynamicHQL() {
+		double saltoCompare=36000;
+		String hql="from Employee where empSalary>:sal";
+		// : substitution symbol
+		String hql1="from Employee where qualification=:qual";
+		List<Employee> empList=null;
+		try(Session session=sfactory.openSession();){
+			Transaction tr=session.beginTransaction();
+			TypedQuery<Employee> query=session.createQuery(hql, Employee.class); 
+			query.setParameter("sal", saltoCompare);
+			empList= query.getResultList();
+			tr.commit();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		System.out.println(empList);
+	}
+	
+	public void DMLHQL(){
+		String hql="update Employee set empSalary=empSalary+2000 where qualification='BE'";
+		try(Session session=sfactory.openSession();){
+			Transaction tr=session.beginTransaction();
+			Query query=session.createQuery(hql); 
+			int n=query.executeUpdate();
+			System.out.println(n);
+			tr.commit();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+	}
+} 
 	  
 	  
 	  
