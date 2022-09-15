@@ -17,11 +17,6 @@ public class MyConnection {
         SessionFactory sessionFact = metadata.getSessionFactoryBuilder().build();
         return sessionFact; // we have connections inside SessionFactory object
 	}
-	
-	public static void main(String[] args) {
-		
-			connect();
-		
-	}
+
 }
 

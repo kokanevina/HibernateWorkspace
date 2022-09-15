@@ -3,6 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 <class name="com.pojo.Employee" table="employee">
+<cache usage="read-only" />  
 <id name="empId" type="int" column="emp_id">
 		<generator class="assigned" /> 
 </id>
@@ -11,4 +12,3 @@
 <property name="qualification" type="string" ></property>
 </class>
 </hibernate-mapping>
-<!--  M -->

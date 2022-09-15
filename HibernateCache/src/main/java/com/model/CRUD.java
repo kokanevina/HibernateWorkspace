@@ -12,7 +12,7 @@ import com.db.MyConnection;
 import com.pojo.Employee;
 import com.pojo.Employee2;
 public class CRUD implements  EmployeeDao{
-	SessionFactory sfactory;
+	public SessionFactory sfactory;
 	public CRUD() {
 			sfactory=MyConnection.connect();
 			System.out.println("Connection Done.......");
@@ -54,8 +54,7 @@ public class CRUD implements  EmployeeDao{
 			Transaction tr=session.beginTransaction();
 		    emp1=session.get(Employee.class, empId);// select emp_id,emp_name, emp_salary, qualification from employee where emp_id=?
 		    emp2=session.get(Employee.class, empId); // data from cache
-			tr.commit();
-			
+			tr.commit();			
 			}
 			catch (Exception e) {
 				e.printStackTrace();
