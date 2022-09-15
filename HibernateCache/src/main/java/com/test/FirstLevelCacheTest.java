@@ -11,8 +11,9 @@ public class FirstLevelCacheTest {
 	crud.addEmployee(emp);
 	Employee emp2=new Employee(2,"Omprakash",25000,"BE");
 	crud.addEmployee(emp2);*/
-	Employee emp=crud.getEmployeeById2(2);
-	Employee empp=crud.getEmployeeById2(2);
+	Employee emp=crud.getEmployeeById(2);
+	System.out.println("________________________");
+	Employee empp=crud.getEmployeeById(2);
 	//System.out.println(emp);
 }
 }

@@ -12,8 +12,5 @@
       <property name="hbm2ddl.auto">update</property>
       <property name="show_sql">true</property>
        <mapping resource="Employee.hbm.xml"/> 
-      <!--  <mapping class="com.pojo.Employee2"/>
-       <mapping  resource="Inheritance.hbm.xml"/>
-       <mapping class="com.pojo.NeoTrainer"/> -->
    </session-factory>
 </hibernate-configuration>
