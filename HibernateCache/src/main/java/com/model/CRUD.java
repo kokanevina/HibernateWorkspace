@@ -6,11 +6,9 @@ import javax.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import com.db.MyConnection;
-
 import com.pojo.Employee;
-import com.pojo.Employee2;
+
 public class CRUD implements  EmployeeDao{
 	public SessionFactory sfactory;
 	public CRUD() {
