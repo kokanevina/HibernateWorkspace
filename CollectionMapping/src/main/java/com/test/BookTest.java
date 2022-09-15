@@ -1,6 +1,7 @@
 package com.test;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.model.AuthorCrud;
@@ -21,23 +22,25 @@ public class BookTest {
 		boolean b1=authcrud.addAuthor(auth);
 		Book book=new Book("Learn Basics of Python",550,auth);
 		boolean b2=bookcrud.addBook(book);
-		System.out.println(b1);
-		*/
-		// getAllBooks
+		System.out.println(b1);*/
 		
-		Author author1=new Author(23,"Sandesh Patil",12);
-		Author author2=new Author(24,"Kishor Kumar",20);
-		Author author3=new Author(25,"Sadhana Parel",22);
+		// getAllBooks
+		List<Book> bookList= bookcrud.getAllBooks();
+		bookList.forEach(System.out::println);
+	/*
+		Author author1=new Author(13,"Sandesh Patil",12);
+		Author author2=new Author(14,"Kishor Kumar",20);
+		Author author3=new Author(15,"Sadhana Parel",22);
 		
 		Set<Author> authors=new HashSet<>();
 		authors.add(author1);
 		authors.add(author2);
 		authors.add(author3);
 		
-		StoryBook storyBook=new StoryBook(211,"Syndrella",780,authors);
+		StoryBook storyBook=new StoryBook(511,"Syndrella",780,authors);
 		
 		boolean bb=bookcrud.addBook(storyBook);
-		System.out.println(bb);
+		System.out.println(bb);*/
 	}
 
 }

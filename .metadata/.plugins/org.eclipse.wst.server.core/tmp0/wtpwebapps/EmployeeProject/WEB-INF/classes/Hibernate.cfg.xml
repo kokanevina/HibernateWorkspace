@@ -9,11 +9,11 @@
       <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/jdbc_veena</property>
       <property name = "hibernate.connection.username">root</property> 
       <property name = "hibernate.connection.password">root</property>
-      <property name="hbm2ddl.auto">create</property>
+      <property name="hbm2ddl.auto">update</property>
       <property name="show_sql">true</property>
-     <!--   <mapping resource="Employee.hbm.xml"/> -->
-       <mapping class="com.pojo.Employee2"/>
+       <mapping resource="Employee.hbm.xml"/> 
+      <!--  <mapping class="com.pojo.Employee2"/>
        <mapping  resource="Inheritance.hbm.xml"/>
-       <mapping class="com.pojo.NeoTrainer"/>
+       <mapping class="com.pojo.NeoTrainer"/> -->
    </session-factory>
 </hibernate-configuration>

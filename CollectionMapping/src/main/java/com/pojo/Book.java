@@ -1,7 +1,10 @@
 package com.pojo;
 
+
 public class Book {
+	
 	private int bookId;
+	
 	private String bookName;
 	private double bookPrice;
 	private Author author; // one to one

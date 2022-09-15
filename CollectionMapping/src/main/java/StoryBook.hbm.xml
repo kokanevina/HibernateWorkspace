@@ -4,7 +4,7 @@
 <hibernate-mapping>
 <class name="com.pojo.StoryBook" table="storybook"> 
 <id name="bookId" type="int" column="book_id">
-		<generator class="increment" /> 
+		<generator class="assigned" /> 
 </id>
 <property name="bookName" type="string" column="book_name" />
 <property name="bookPrice" type="double" column="book_price" />

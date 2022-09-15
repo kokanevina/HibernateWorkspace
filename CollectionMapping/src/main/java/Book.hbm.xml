@@ -8,7 +8,9 @@
 </id>
 <property name="bookName" type="string" column="book_name" />
 <property name="bookPrice" type="double" column="book_price" />
-<many-to-one  name="author" column="auth_id" unique="true" class="com.pojo.Author" not-null="true">
+<many-to-one name="author" column="auth_id" 
+unique="true" class="com.pojo.Author" 
+not-null="true" lazy="proxy">
 </many-to-one>
 </class>
 </hibernate-mapping>

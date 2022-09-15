@@ -2,10 +2,25 @@ package com.pojo;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="storybook")
 public class StoryBook {
+	@Id
+	@Column(name = "book_id")
 	private int bookId;
+	@Column(name = "book_name")
 	private String bookName;
+	@Column(name = "book_price")
 	private double bookPrice;
+	@OneToMany(targetEntity = Author.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "b_id")
 	private Set<Author> authors; // one Story Book having many Author objects
 	public StoryBook() {
 		// TODO Auto-generated constructor stub

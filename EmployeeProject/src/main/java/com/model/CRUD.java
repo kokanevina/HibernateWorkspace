@@ -87,7 +87,7 @@ public class CRUD  implements EmployeeDao{
 		List<Employee> empList=null;
 		try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-			TypedQuery<Employee> query=session.createQuery("from Employee", Employee.class); // HQL Employee : pojo class name 
+			TypedQuery<Employee> query=session.createQuery("from Employee", Employee.class); //Hibernate Query Lan
 			empList= query.getResultList();
 			tr.commit();
 			}
@@ -113,6 +113,67 @@ public class CRUD  implements EmployeeDao{
 		return b;
 	}
 	
+	/*1st level chache wont work for HQL : bcz we are explicitly telling hibernate to fire SQL on database*/
+	public void  getAllEmployees2() 
+	{ 
+		List<Employee> empList1=null,empList2=null;
+		Session session=sfactory.openSession(); // session opened
+		
+			Transaction tr=session.beginTransaction();
+			TypedQuery<Employee> query1=session.createQuery("from Employee", Employee.class); // HQL 
+			empList1= query1.getResultList();
+			TypedQuery<Employee> query2=session.createQuery("from Employee", Employee.class); // HQL 
+			empList2= query2.getResultList();
+			tr.commit();
+			session.close(); // session closed
+	}
+	
+	 public Employee getEmployeeById2(int empId) 
+	  {  Employee emp1=null,emp2=null;
+		  // if we want to select record on the basis of pk then direct method : get is available
+		  try(Session session=sfactory.openSession();){ // session opened 
+			Transaction tr=session.beginTransaction();
+			System.out.println("******************");
+		    emp1=session.get(Employee.class, empId);// select emp_id,emp_name, emp_salary, qualification from employee where emp_id=?
+		    System.out.println("*********************");
+		    // data will be saved in cache
+		    emp2=session.get(Employee.class, empId); // data from cache
+			tr.commit();
+			System.out.println(emp1);
+			System.out.println(emp2);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		  // session autoclosed, cache cleared
+		 
+		  return emp1;
+	  }
+	 public Employee getEmployeeById3(int empId) 
+	  {  Employee emp1=null,emp2=null;
+		  // if we want to select record on the basis of pk then direct method : get is available
+		  try(Session session=sfactory.openSession();){ // session opened 
+			Transaction tr=session.beginTransaction();
+			System.out.println("******************");
+		    emp1=session.get(Employee.class, empId);// select emp_id,emp_name, emp_salary, qualification from employee where emp_id=?
+		    System.out.println("*********************");
+		    // data will be saved in cache
+		    emp2=session.get(Employee.class, empId); // data from cache
+		    emp2=session.get(Employee.class, empId);
+		    emp2=session.get(Employee.class, empId);
+		    emp2=session.get(Employee.class, empId);
+		    emp2=session.get(Employee.class, empId);
+			tr.commit();
+			System.out.println(emp1);
+			System.out.println(emp2);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		  // session autoclosed
+		 
+		  return emp1;
+	  }
 } // method ended
 	  
 	  

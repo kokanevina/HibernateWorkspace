@@ -11,8 +11,10 @@
       <property name = "hibernate.connection.password">root</property>
       <property name="hbm2ddl.auto">update</property>
       <property name="show_sql">true</property>
-  	   <mapping resource="Author.hbm.xml"/>
-  	   <!-- <mapping resource="Book.hbm.xml"/> -->
-  	   <mapping resource="StoryBook.hbm.xml"/>
+  	  <mapping resource="Author.hbm.xml"/> 
+  	  <mapping resource="Book.hbm.xml"/> 
+  	   <!-- <mapping resource="StoryBook.hbm.xml"/> -->
+  	  <!--  <mapping class="com.pojo.Author"/>
+  	   <mapping class="com.pojo.StoryBook"/> -->
    </session-factory>
 </hibernate-configuration>

@@ -1,8 +1,12 @@
 package com.pojo;
 
+
 public class Author {
+	
 	private int authorId;
+	
 	private String authorName;
+	
 	private double writingExp;
 	
 	public Author() {
