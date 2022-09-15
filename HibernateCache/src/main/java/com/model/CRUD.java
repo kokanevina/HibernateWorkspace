@@ -2,7 +2,8 @@ package com.model;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.TypedQuery;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -36,10 +37,9 @@ public class CRUD implements  EmployeeDao{
 		Session session=sfactory.openSession(); // session opened
 		
 			Transaction tr=session.beginTransaction();
-			TypedQuery<Employee> query1=session.createQuery("from Employee", Employee.class); // HQL 
-			empList1= query1.getResultList();
-			TypedQuery<Employee> query2=session.createQuery("from Employee", Employee.class); // HQL 
-			empList2= query2.getResultList();
+			Query<Employee> query=session.createQuery("from Employee", Employee.class); // HQL 
+			query.setCacheable(true);
+			empList1= query.getResultList();
 			tr.commit();
 			session.close(); // session closed
 			return empList2;
