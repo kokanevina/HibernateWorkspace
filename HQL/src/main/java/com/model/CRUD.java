@@ -78,18 +78,23 @@ public class CRUD  implements EmployeeDao{
 		System.out.println(idList);
 	}
 	public void executeHQL3() {
-		String hql="select empId,empName from Employee where empSalary<34000";
-		List<Employee> empList=null;
+		String hql="select empId,empName from Employee where empSalary>34000";
+		List<Object[]> empList=null;
 		try(Session session=sfactory.openSession();){
 			Transaction tr=session.beginTransaction();
-			TypedQuery<Employee> query=session.createQuery(hql, Employee.class); 
+			TypedQuery<Object[]> query=session.createQuery(hql,Object[].class); 
 			empList= query.getResultList();
 			tr.commit();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-		System.out.println(empList);
+		
+		for(Object[] array:empList) {
+			for(Object o:array) {
+				System.out.println(o);
+			}
+		}
 	}
 } // method ended
 	  
