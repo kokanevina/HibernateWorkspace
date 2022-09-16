@@ -1,12 +1,14 @@
 package com.model;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -55,6 +57,45 @@ public class CriteriaImpl {
 			e.printStackTrace();
 		}
 		System.out.println(mylist);
+	}
+	public void criteriaMeth3(){
+		List mylist=null;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Criteria cr=session.createCriteria(Employee.class);
+		//cr.setProjection(Projections.max("empSalary"));
+		//cr.setProjection(Projections.min("empSalary"));
+		//cr.setProjection(Projections.sum("empSalary"));
+		cr.setProjection(Projections.avg("empSalary"));
+		mylist=cr.list();
+		tr.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(mylist);
+	}
+	public void criteriaMeth4(){
+		List mylist=null;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Criteria criteria = session.createCriteria(Employee.class);
+		ProjectionList projectionList = Projections.projectionList();
+		projectionList.add(Projections.max("empSalary"));
+		projectionList.add(Projections.groupProperty("qualification"));
+		criteria.setProjection(projectionList);
+		 mylist = criteria.list();
+		tr.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		Iterator it = mylist.iterator();
+
+		Object[] obj = (Object[]) it.next();
+		for (int i = 0; i < obj.length; i++) {
+			System.out.print(obj[i] + "\t");
+		}
 	}
 	
 }
