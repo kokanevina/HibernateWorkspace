@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -98,4 +99,23 @@ public class CriteriaImpl {
 		}
 	}
 	
+	public void criteriaMeth5(){
+		List mylist=null;
+		try(Session session=sfactory.openSession();){
+		Transaction tr=session.beginTransaction();
+		Criteria cr = session.createCriteria(Employee.class);
+		cr.add(Restrictions.between("empSalary", 35000.0, 50000.0));
+	//LogicalExpression expression=  Restrictions.and(Restrictions.ge("empSalary", 35000.0), Restrictions.le("empSalary", 50000.0));
+		//cr.add(expression);
+		mylist = cr.list();
+		tr.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		mylist.forEach(System.out::println);
+	}
+	// crate new method for	
+	//select * from employee where qualification = 'ME' and salary > 40000
+
 }
