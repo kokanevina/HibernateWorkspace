@@ -92,10 +92,12 @@ public class CriteriaImpl {
 			e.printStackTrace();
 		}
 		Iterator it = mylist.iterator();
-
-		Object[] obj = (Object[]) it.next();
-		for (int i = 0; i < obj.length; i++) {
-			System.out.print(obj[i] + "\t");
+		while(it.hasNext()) {
+			Object[] obj = (Object[]) it.next();
+			for (int i = 0; i < obj.length; i++) {
+				System.out.print(obj[i]+"  ");
+			}
+			System.out.println();
 		}
 	}
 	
